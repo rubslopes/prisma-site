@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prisma — agente pessoal com acesso autorizado à conta Google</title>
+<meta name="description" content="Prisma é um agente pessoal, de dono único, que lê e escreve na conta Google do próprio operador quando solicitado. Sem cadastro, sem outros usuários.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f2f3ef">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="wordmark"><a href="/">Prisma</a></p>
+    <p class="tag">acesso pessoal à conta Google</p>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Um agente que atende uma conta só.</h1>
+      <p class="lede">Prisma lê e escreve na conta Google de Rubens Lopes quando ele pede — e-mail, agenda e arquivos. <span class="dim">Não há cadastro, não há outros usuários e não há plano para assinar.</span></p>
+
+      <svg class="refraction" viewBox="0 0 1000 90" role="img" aria-label="Uma linha única de tinta que se abre em quatro feixes coloridos.">
+        <path pathLength="1" stroke="#14171b" d="M0 45 H470" aria-hidden="true"/>
+        <path pathLength="1" stroke="#d9502e" d="M470 45 L1000 6" aria-hidden="true"/>
+        <path pathLength="1" stroke="#d9a22b" d="M470 45 L1000 32" aria-hidden="true"/>
+        <path pathLength="1" stroke="#4e8f62" d="M470 45 L1000 58" aria-hidden="true"/>
+        <path pathLength="1" stroke="#35618f" d="M470 45 L1000 84" aria-hidden="true"/>
+      </svg>
+    </div>
+
+    <section class="section" aria-labelledby="acesso">
+      <p class="eyebrow">Acesso ao Google</p>
+      <h2 id="acesso">Três áreas, e apenas quando a ação é pedida.</h2>
+      <ul class="access">
+        <li>
+          <span class="label">Gmail</span>
+          <p class="what">Lê mensagens, escreve rascunhos e envia e-mail em nome do dono da conta.</p>
+          <span class="when">gmail.readonly · gmail.send · gmail.compose</span>
+        </li>
+        <li>
+          <span class="label">Drive</span>
+          <p class="what">Lê arquivos que o dono da conta escolhe abrir, e guarda o que o próprio agente cria.</p>
+          <span class="when">drive.readonly · drive.file</span>
+        </li>
+        <li>
+          <span class="label">Agenda</span>
+          <p class="what">Consulta compromissos e cria ou altera eventos quando solicitado.</p>
+          <span class="when">calendar</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="funciona">
+      <p class="eyebrow">Como funciona</p>
+      <h2 id="funciona">O Google entrega. O dono da conta pode tirar.</h2>
+      <p>A autorização passa pelo fluxo OAuth do Google, na tela de consentimento. O token devolvido fica guardado num servidor privado, com acesso restrito ao dono da conta, e é o único caminho pelo qual o agente alcança e-mail, agenda ou arquivos.</p>
+      <p>Qualquer permissão pode ser removida a qualquer momento em <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. A partir daí o agente deixa de ter acesso até ser autorizado de novo.</p>
+    </section>
+
+    <section class="section" aria-labelledby="quem">
+      <p class="eyebrow">Quem está por trás</p>
+      <h2 id="quem">Uma pessoa, não uma empresa.</h2>
+      <p>Operado por Rubens Lopes, em Recife, para uso próprio. Não há equipe, clientes, cobrança nem distribuição para terceiros.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a href="privacidade.html">Política de privacidade</a>
+    <a href="mailto:lps.rubens@gmail.com">lps.rubens@gmail.com</a>
+    <span class="spacer"></span>
+    <span>Atualizado em 25 de novembro de 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+:root {
+  --ink: #14171b;
+  --paper: #f2f3ef;
+  --panel: #fbfbf8;
+  --muted: #59606a;
+  --rule: #d3d7cf;
+  --vermilion: #d9502e;
+  --amber: #d9a22b;
+  --green: #4e8f62;
+  --blue: #35618f;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --measure: 68ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: clamp(1.0625rem, 0.5vw + 0.95rem, 1.1875rem);
+  line-height: 1.55;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 5vw, 4rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+
+/* ---------- top bar ---------- */
+
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: clamp(2.5rem, 7vw, 5rem);
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.wordmark a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wordmark a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 6.2vw, 3.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0;
+  text-wrap: balance;
+  max-width: 22ch;
+}
+
+.meta {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 62ch;
+  margin: 1.25rem 0 0;
+}
+
+.lede {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(1.1rem, 1vw + 0.9rem, 1.35rem);
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.lede .dim {
+  color: var(--muted);
+}
+
+/* ---------- signature: refraction rule ---------- */
+
+.refraction {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 96px;
+  overflow: visible;
+}
+
+.refraction path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 1.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .refraction path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  .refraction path:nth-child(2) { animation-delay: 620ms; }
+  .refraction path:nth-child(3) { animation-delay: 700ms; }
+  .refraction path:nth-child(4) { animation-delay: 780ms; }
+  .refraction path:nth-child(5) { animation-delay: 860ms; }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refraction path {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  margin-top: clamp(3rem, 8vw, 5.5rem);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 1.6vw + 1rem, 1.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  max-width: 26ch;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: var(--measure);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- access rows ---------- */
+
+.access {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.access li {
+  display: grid;
+  grid-template-columns: minmax(7rem, 12rem) 1fr;
+  gap: 0.5rem 2rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.access .label {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-top: 0.15em;
+}
+
+.access .what {
+  margin: 0;
+  max-width: 48ch;
+}
+
+.access .when {
+  grid-column: 2;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+/* ---------- privacy document ---------- */
+
+.doc {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(2rem, 5vw, 3rem);
+}
+
+.doc section {
+  display: grid;
+  gap: 0.35rem 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.doc p,
+.doc ul {
+  max-width: var(--measure);
+}
+
+.doc ul {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.doc li {
+  margin-bottom: 0.45rem;
+}
+
+.doc h2 {
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 620px) {
+  .scopes caption {
+    display: block;
+    width: 100%;
+  }
+
+  .scopes thead {
+    display: none;
+  }
+
+  .scopes,
+  .scopes tbody,
+  .scopes tr,
+  .scopes td {
+    display: block;
+    width: 100%;
+  }
+
+  .scopes tr {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .scopes td {
+    border: 0;
+    padding: 0;
+  }
+
+  .scopes td:first-child {
+    padding-bottom: 0.15rem;
+    color: var(--muted);
+  }
+
+  .access li {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .access .when {
+    grid-column: 1;
+  }
+}
+
+@media (min-width: 860px) {
+  .doc section {
+    grid-template-columns: 13rem 1fr;
+  }
+
+  .doc .eyebrow {
+    margin: 0.35rem 0 0;
+    grid-row: 1 / span 2;
+  }
+
+  .doc h2,
+  .doc p,
+  .doc ul,
+  .doc table {
+    grid-column: 2;
+  }
+}
+
+/* ---------- scope table ---------- */
+
+.scopes {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.25rem 0 1.25rem;
+  font-size: 0.9688rem;
+}
+
+.scopes caption {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 0.6rem;
+}
+
+.scopes th,
+.scopes td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 0.75rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.scopes th {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.scopes td:first-child {
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  white-space: nowrap;
+  padding-right: 1.25rem;
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.foot a {
+  color: var(--ink);
+  text-underline-offset: 0.25em;
+}
+
+.foot .spacer {
+  flex: 1 1 auto;
+}
+
+/* ---------- links & focus ---------- */
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
